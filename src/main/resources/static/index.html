@@ -1,7 +1,7 @@
 <!doctype html>
 <html ng-app="EmployeeApp">
 	<head>
-		<title>Employee Registry</title>
+		<title>Employee Directory</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
     	<script src="employee-controller.js"></script>
 	</head>
@@ -17,6 +17,12 @@
 			</form>
 			<br>
 			<table>
+              <tr>
+              	<td>First name</td>
+              	<td>Last name</td>
+              	<td>Location</td>
+              	<td>Job title</td>  
+              </tr>
               <tr ng-repeat="emp in employees">
     			<td>{{ emp.firstName }}</td>
     			<td>{{ emp.lastName }}</td>
