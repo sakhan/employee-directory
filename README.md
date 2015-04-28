@@ -31,8 +31,8 @@ Here is a listing of the technology stack:
 
 * Login Info: 
 
-1. Standard user account login info is user/user. 
-2. HR user account login is admin/admin
+1. Standard user account login info is `user/user`. 
+2. HR user account login is `admin/admin`
 
 ### Areas of Improvements ###
 
