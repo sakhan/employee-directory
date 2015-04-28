@@ -2,7 +2,7 @@
 
 Feature's implemented:
 
-* Employee directory searchable by first name and last name(auto loaded at startup time)
+* Employee directory searchable by first name and last name (auto loaded at startup time)
 * Ability to view a paginated listing of all employees
 * Application is secured by username/password login in order to view/edit any data
 * Role based authorization i.e. only HR role has authority to add/edit/delete employees 
@@ -27,4 +27,4 @@ Here is a listing of the technology stack:
 
 * Running the app: There are 3 ways you can run the application. From Eclipse run the Application.java file as a standalone Java program and your in business. In order to execute the application outside of Eclipse you can either build the JAR as an executable `mvn clean package` then type `java -jar target\emp-reg-0.1.0.jar`. Or you can also run directly via maven `mvn spring-boot:run`
 
-* Configuration: No special configuration is needed 
+* Configuration: No special configuration is needed
