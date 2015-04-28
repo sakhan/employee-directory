@@ -1,0 +1,54 @@
+<!doctype html>
+<html ng-app="EmployeeApp">
+	<head>
+		<title>Employee Registry</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    	<script src="employee-controller.js"></script>
+	</head>
+
+	<body>
+	    Welcome to the Employee Search App!
+	    <span style="position: absolute; left: 400px;"><a href="/logout">Logout</a></span>
+		<div ng-controller="EmployeeController">			
+			<br>
+			<form>
+				<input type="text" ng-model="searchForm.terms" placeholder=" enter search terms here">
+				<input type="submit" ng-click="search()" value="Search">
+			</form>
+			<br>
+			<table>
+              <tr ng-repeat="emp in employees">
+    			<td>{{ emp.firstName }}</td>
+    			<td>{{ emp.lastName }}</td>
+    			<td>{{ emp.location }}</td>
+    			<td>{{ emp.jobTitle }}</td>
+    			
+    			<td ng-show="hasHrRole">
+    				<button ng-click=deleteEmployee(emp)>Delete</button>
+    				<button ng-click=loadEmployeeDetail(emp)>Update</button>
+    			</td>
+  			  </tr>
+			</table>
+			
+			<p>
+			  <button ng-click="gotoPage(pageInfo.number - 1)">&lt; Previous page</button>
+			  Page {{pageInfo.number + 1}} of {{pageInfo.totalPages}} ({{pageInfo.totalElements}} employees)
+			  <button ng-click="gotoPage(pageInfo.number + 1)">Next page &gt;</button>	
+			</p>
+
+			<br>
+			<button ng-show="hasHrRole" ng-click="showEmpForm = true">Create Employee</button>
+			<br><br>
+			
+			<form ng-show="showEmpForm">
+              <input type="text" ng-model="empForm.firstName"  size="30" placeholder=" first name"><br>
+              <input type="text" ng-model="empForm.lastName"  size="30" placeholder=" last name"><br>
+              <input type="text" ng-model="empForm.location"  size="30" placeholder=" location"><br>
+              <input type="text" ng-model="empForm.jobTitle"  size="30" placeholder=" job title"><br>
+              <button ng-click="cancelSave()">Cancel</button>
+              <input type="submit" ng-click="processFormSubmit()" value="Save">
+           </form>
+			
+		</div>
+	</body>
+</html>
