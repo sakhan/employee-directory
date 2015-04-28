@@ -28,3 +28,14 @@ Here is a listing of the technology stack:
 * Running the app: There are 3 ways you can run the application. From Eclipse run the Application.java file as a standalone Java program and your in business. In order to execute the application outside of Eclipse you can either build the JAR as an executable `mvn clean package` then type `java -jar target\emp-reg-0.1.0.jar`. Or you can also run directly via maven `mvn spring-boot:run`
 
 * Configuration: No special configuration is needed
+
+* Login Info: 
+1. Standard user account login info is user/user. 
+2. HR user account login is admin/admin
+
+### Areas of Improvements ###
+
+* Currently there is absolutely no UI styling, this is intentional as I want to configure twitter-bootstrap.
+* There are only two login accounts that are hard coded in an in-memory database. Ideally these would be part of the schema and each employee would have a corresponding account. Note: There are 30,000 employees but only 2 logins.
+* There are no errors being displayed in the UI and are silently ignored.
+* Unit test coverage is lacking.
