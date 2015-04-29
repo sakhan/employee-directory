@@ -1,14 +1,18 @@
 <!doctype html>
 <html>
 	<head>
-		<title>Employee Directory Login</title>
+	  <title>Employee Directory Login</title>
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	</head>
 	<body>
-		<p>Please provide your username and password to sign in</p>
+	  <div class="container">	
+        <br>
+        <p>Please provide your username and password to sign in.</p>
 		<form action="/login" method="POST">
-			<input type="text" name="username" placeholder=" username"><br>
-			<input type="password" name="password" placeholder=" password"><br>
-			<input type="submit" value="Sign In">
+			<div class="form-group"><input type="text" name="username" placeholder=" username"></div>
+			<div class="form-group"><input type="password" name="password" placeholder=" password"></div>
+			<input class="btn btn-primary" type="submit" value="Sign In">
 		</form>
+      </div>
 	</body>
 </html>

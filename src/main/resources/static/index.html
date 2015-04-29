@@ -2,26 +2,30 @@
 <html ng-app="EmployeeApp">
 	<head>
 		<title>Employee Directory</title>
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
     	<script src="employee-controller.js"></script>
 	</head>
 
 	<body>
-	    Welcome to the Employee Search App!
-	    <span style="position: absolute; left: 400px;"><a href="/logout">Logout</a></span>
-		<div ng-controller="EmployeeController">			
+	    <div class="container" ng-controller="EmployeeController">
+	        <br>
+            <div class="row">
+              <div class="col-md-8"><h4>Welcome to the Employee Search App!</h4></div>
+              <div class="col-md-4"><a href="/logout">Logout</a></div>
+            </div>
 			<br>
-			<form>
-				<input type="text" ng-model="searchForm.terms" placeholder=" enter search terms here">
-				<input type="submit" ng-click="search()" value="Search">
+			<form class="form-inline">
+				<input class="form-control" type="text" ng-model="searchForm.terms" placeholder=" enter search terms here">
+				<input class="btn btn-primary" type="submit" ng-click="search()" value="Search">
 			</form>
 			<br>
-			<table>
+			<table class="table table-striped table-hover">
               <tr>
-              	<td>First name</td>
-              	<td>Last name</td>
-              	<td>Location</td>
-              	<td>Job title</td>  
+              	<th>First name</th>
+              	<th>Last name</th>
+              	<th>Location</th>
+              	<th>Job title</th>  
               </tr>
               <tr ng-repeat="emp in employees">
     			<td>{{ emp.firstName }}</td>
@@ -30,31 +34,49 @@
     			<td>{{ emp.jobTitle }}</td>
     			
     			<td ng-show="hasHrRole">
-    				<button ng-click=deleteEmployee(emp)>Delete</button>
-    				<button ng-click=loadEmployeeDetail(emp)>Update</button>
+    				<button class="btn" ng-click=deleteEmployee(emp)>
+    				  <span class="glyphicon glyphicon-trash"></span> Delete
+    				</button>
+    				<button class="btn" ng-click=loadEmployeeDetail(emp)> 
+    				  <span class="glyphicon glyphicon-pencil"></span> Edit
+    				</button>
     			</td>
   			  </tr>
 			</table>
 			
-			<p>
-			  <button ng-click="gotoPage(pageInfo.number - 1)">&lt; Previous page</button>
+			<div>
+			  <button class="btn btn-default" ng-click="gotoPage(pageInfo.number - 1)">
+                <span class="glyphicon glyphicon-step-backward"></span> Previous page
+              </button>
 			  Page {{pageInfo.number + 1}} of {{pageInfo.totalPages}} ({{pageInfo.totalElements}} employees)
-			  <button ng-click="gotoPage(pageInfo.number + 1)">Next page &gt;</button>	
-			</p>
+			  <button class="btn btn-default" ng-click="gotoPage(pageInfo.number + 1)">
+                Next page <span class="glyphicon glyphicon-step-forward"></span>
+              </button>	
+			</div>
 
-			<br>
-			<button ng-show="hasHrRole" ng-click="showEmpForm = true">Create Employee</button>
+			<hr>
+			<button class="btn btn-success" ng-show="hasHrRole" ng-click="showEmpForm = true">
+				<span class="glyphicon glyphicon-user"></span> Create New Employee
+			</button>
 			<br><br>
 			
 			<form ng-show="showEmpForm">
-              <input type="text" ng-model="empForm.firstName"  size="30" placeholder=" first name"><br>
-              <input type="text" ng-model="empForm.lastName"  size="30" placeholder=" last name"><br>
-              <input type="text" ng-model="empForm.location"  size="30" placeholder=" location"><br>
-              <input type="text" ng-model="empForm.jobTitle"  size="30" placeholder=" job title"><br>
-              <button ng-click="cancelSave()">Cancel</button>
-              <input type="submit" ng-click="processFormSubmit()" value="Save">
+              <div class="form-group">
+                <input type="text" ng-model="empForm.firstName"  size="30" placeholder=" first name">
+              </div>
+              <div class="form-group">
+                <input type="text" ng-model="empForm.lastName"  size="30" placeholder=" last name"><br>
+              </div>
+              <div class="form-group">
+                <input type="text" ng-model="empForm.location"  size="30" placeholder=" location"><br>
+              </div>
+              <div class="form-group">
+                <input type="text" ng-model="empForm.jobTitle"  size="30" placeholder=" job title"><br>
+              </div>
+              <button class="btn btn-default" ng-click="cancelSave()">Cancel</button>
+              <input class="btn btn-default" type="submit" ng-click="processFormSubmit()" value="Save">
            </form>
-			
+		   <hr>	
 		</div>
 	</body>
 </html>
