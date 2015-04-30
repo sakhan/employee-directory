@@ -20,6 +20,7 @@ Here is a listing of the technology stack:
 * Spring MVC
 * Java 8
 * AngularJS
+* Twitter Bootstrap
 
 ### How do I get set up? ###
 
@@ -36,7 +37,6 @@ Here is a listing of the technology stack:
 
 ### Areas of Improvements ###
 
-* Currently there is absolutely no UI styling, this is intentional as I want to configure twitter-bootstrap.
 * There are only two login accounts that are hard coded in an in-memory database. Ideally these would be part of the schema and each employee would have a corresponding account. Note: There are 30,000 employees but only 2 logins.
 * There are no errors being displayed in the UI and are silently ignored.
 * Unit test coverage is lacking.
