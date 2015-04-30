@@ -15,6 +15,7 @@ Here is a listing of the technology stack:
 
 * Spring Boot micro-service (embedded Tomcat)
 * In memory H2 database
+* Spring Data REST (Hypermedia-drive rest service)
 * Spring Data JPA (Hibernate)
 * Spring Security
 * Spring MVC
