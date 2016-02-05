@@ -9,7 +9,7 @@ Feature's implemented:
 
 ### Technology Stack ###
 
-Back-end is a CORS enabled Hypermedia-Driven RESTful Web Service secured by Spring Security. Persistence layer is auto generated via Spring Data JPA hitting an in-memory H2 database, which is populated with some seed data at startup. Front-end is a AngularJS based semi-SPA webapp that consumes the REST service.
+Back-end is a CORS enabled Hypermedia-Driven RESTful Web Service secured by Spring Security. Persistence layer is auto generated via Spring Data JPA hitting an in-memory H2 database, which is populated with some seed data at startup. Front-end is an AngularJS based semi-SPA webapp that consumes the REST service.
 
 Here is a listing of the technology stack:
 
@@ -41,3 +41,4 @@ Here is a listing of the technology stack:
 * There are only two login accounts that are hard coded in an in-memory database. Ideally these would be part of the schema and each employee would have a corresponding account. Note: There are 30,000 employees but only 2 logins.
 * There are no errors being displayed in the UI and are silently ignored.
 * Unit test coverage is lacking.
+* Configure h2 DB to persist on disk as opposed to in-memory, so data is persisted across server runs.
